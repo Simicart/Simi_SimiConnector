@@ -67,5 +67,11 @@
              module="Simi_Simiconnector" sortOrder="10" parent="Simi_Simiconnector::userexperience"
              action="simiconnector/simibarcode/" resource="Simi_Simiconnector::manage"/>
 
+        <!-- user click count -->
+        <add id="Simi_Simiconnector::userclickcount" title="User Click Count" module="Simi_Simiconnector" sortOrder="699"
+             parent="Simi_Simiconnector::simiconnector" resource="Simi_Simiconnector::userclickcount"/>
+        <add id="Simi_Simiconnector::countclick" title="Count Click"
+             module="Simi_Simiconnector" sortOrder="10" parent="Simi_Simiconnector::userclickcount"
+             action="simiconnector/simiclickcount/" resource="Simi_Simiconnector::manage"/>
     </menu>
 </config>
