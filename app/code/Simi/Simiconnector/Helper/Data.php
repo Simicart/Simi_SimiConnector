@@ -129,6 +129,16 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public $directionList;
 
+    /**
+     * @var mixed
+     */
+    protected $_imageFactory;
+
+    /**
+     * @var mixed
+     */
+    protected $resourceFactory;
+
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\ObjectManagerInterface $simiObjectManager,
