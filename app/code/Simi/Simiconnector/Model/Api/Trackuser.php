@@ -25,8 +25,8 @@ class Trackuser extends Apiabstract
         $collection = $this->builderQuery;
         $data = $this->getData();
         $parameters = null;
-        if (isset($data['params'])) {
-            $parameters = $data['params'];
+        if (isset($data['contents'])) {
+            $parameters = (array)$data['contents'];
         }
         try {
             $customerId = 0;
