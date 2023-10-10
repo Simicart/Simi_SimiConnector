@@ -78,7 +78,7 @@ class Customer extends \Magento\Framework\Model\AbstractModel
         } else {
             $validator = new EmailAddress();
 
-            if ($validator->isValid($email)) {
+            if (!$validator->isValid($email)) {
                 $this->_getSession()->setForgottenEmail($email);
                 throw new \Simi\Simiconnector\Helper\SimiException(__('Please correct the email address.'), 4);
             }
@@ -252,6 +252,11 @@ class Customer extends \Magento\Framework\Model\AbstractModel
         if (isset($data->suffix) && $data->suffix) {
             $customer->setSuffix($data->suffix);
         }
+        if (isset($data->dob) && $data->dob) {
+            $dobStr = $data->dob;
+            $dob = date("Y-m-d", strtotime($dobStr));
+            $customer->setDob($dob);
+        }
     }
 
     /*
@@ -304,6 +309,11 @@ class Customer extends \Magento\Framework\Model\AbstractModel
             ->setFirstname($data->firstname)
             ->setLastname($data->lastname)
             ->setEmail($data->email);
+        if (isset($data->dob) && $data->dob) {
+            $dobStr = $data->dob;
+            $dob = date("Y-m-d", strtotime($dobStr));
+            $customer->setDob($dob);
+        }
         $this->simiObjectManager->get('Simi\Simiconnector\Helper\Customer')->applyDataToCustomer($customer, $data);
 
         $password = null;

@@ -512,7 +512,7 @@ class Orders extends Apiabstract
         $order = $this->simiObjectManager->create('Magento\Quote\Api\CartManagementInterface')->submit($quote);
 
         if (null == $order) {
-            throw new LocalizedException(
+            throw new \Magento\Framework\Exception\LocalizedException(
                 __('A server error stopped your order from being placed. Please try to place your order again.')
             );
         }

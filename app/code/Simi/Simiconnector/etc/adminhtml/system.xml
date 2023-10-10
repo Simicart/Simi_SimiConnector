@@ -179,14 +179,15 @@
                         <field id="*/*/hideaddress_enable">1</field>
                     </depends>
                 </field>
-                <field id="country_id_default" translate="label" type="text" sortOrder="349" showInDefault="1"
+                <field id="country_id_default" translate="label" type="select" sortOrder="349" showInDefault="1"
                        showInWebsite="1" showInStore="1">
-                    <label>Default Country Value &#128241;</label>
+                    <label>Default Country</label>
+                    <source_model>Simi\Simiconnector\Model\Config\Source\Country</source_model>
                     <depends>
                         <field id="*/*/country_id" separator=",">2,3</field>
                         <field id="*/*/hideaddress_enable">1</field>
                     </depends>
-                    <comment>Applied when Customers leave Country field blank, use country ID, eg. US</comment>
+                    <comment>Applied when Customers leave Country field blank, select from allowed countries</comment>
                 </field>
                 <field id="region_id" translate="label" type="select" sortOrder="399" showInDefault="1"
                        showInWebsite="1" showInStore="1">

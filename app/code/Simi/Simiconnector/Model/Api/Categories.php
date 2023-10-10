@@ -64,12 +64,12 @@ class Categories extends Apiabstract
         foreach ($result['categories'] as $index => $catData) {
             $categoryModel = $this->simiObjectManager
                 ->create('\Magento\Catalog\Model\Category')
-                ->load($catData['entity_id']);        
+                ->load($catData['entity_id']);
             foreach ($categoryModel->getIdentities() as $tag) {
                // $tag = str_replace("cat_p_", "p", $tag);
                 if(!in_array($tag, $cacheIds)){
                     $cacheIds[] = $tag;
-                }                
+                }
             }
             $catData = array_merge($catData, $categoryModel->getData());
             if (isset($catData['request_path'])) {
@@ -80,6 +80,9 @@ class Categories extends Apiabstract
             }
             if ($image_url = $categoryModel->getImageUrl()) {
                 $catData['image_url'] = $image_url;
+            }
+            if ($app_image_url = $categoryModel->getImageForApp()) {
+                $catData['app_image_url'] = $app_image_url;
             }
             if (isset($catData['landing_page']) && $catData['landing_page']) {
                 $block = $this->simiObjectManager->get('Magento\Framework\View\LayoutInterface')
