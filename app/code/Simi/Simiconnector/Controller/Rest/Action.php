@@ -11,7 +11,31 @@ class Action extends \Magento\Framework\App\Action\Action
 {
 
     public $data;
+
+    /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
     public $simiObjectManager;
+
+    /**
+     * @var \Magento\Framework\App\Cache\TypeListInterface
+     */
+    protected $cacheTypeList;
+
+    /**
+     * @var \Magento\Framework\App\Cache\StateInterface
+     */
+    protected $cacheState;
+
+    /**
+     * @var \Magento\Framework\App\Cache\Frontend\Pool
+     */
+    protected $cacheFrontendPool;
+
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
+    protected $resultPageFactory;
 
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
