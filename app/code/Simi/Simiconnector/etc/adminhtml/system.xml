@@ -41,6 +41,9 @@
                         Dashboard
                     </comment>
                 </field>
+                <field id="bottom_menu_type" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bottom Menu Type</label>
+                </field>
                 <field id="pwa_studio_url" translate="label" type="text" sortOrder="329" showInDefault="1">
                     <label>PWA Studio URL</label>
                     <comment>URL of pwa-studio site</comment>

@@ -114,6 +114,7 @@ class Storeviews extends Apiabstract
                 'store_code' => $this->storeManager->getStore()->getCode(),
                 'group_id' => $this->storeManager->getStore()->getGroupId(),
                 'base_url' => $base_url,
+                'bottom_menu_type' => $this->getStoreConfig('simiconnector/general/bottom_menu_type'),
                 'use_store' => $this->getStoreConfig('web/url/use_store'),
                 'is_rtl' => $this->getStoreConfig('simiconnector/general/is_rtl'),
                 'is_show_sample_data' => $this->getStoreConfig('simiconnector/general/is_show_sample_data'),
