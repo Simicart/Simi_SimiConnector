@@ -18,7 +18,7 @@ class Uploadfiles extends Apiabstract
                 'full_path' => $media . $file_name,
                 'quote_path' => $oriPath . $file_name,
                 'order_path' => $oriPath . $file_name,
-                'secret_key' => substr($encodeMethod(file_get_contents($media . $file_name)), 0, 20)
+                'secret_key' => substr(hash('sha256', file_get_contents($media . $file_name)), 0, 20)
             )
         );
     }

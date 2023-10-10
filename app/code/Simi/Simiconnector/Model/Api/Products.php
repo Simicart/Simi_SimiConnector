@@ -153,7 +153,7 @@ class Products extends Apiabstract
         $image_height = isset($parameters['image_height']) ? $parameters['image_height'] : null;
 
         $cacheIds = [];
-        
+
         foreach ($collection as $entity) {
             if (++$check_offset <= $offset) {
                 continue;
@@ -169,7 +169,7 @@ class Products extends Apiabstract
                // $tag = str_replace("cat_p_", "p", $tag);
                 if(!in_array($tag, $cacheIds)){
                     $cacheIds[] = $tag;
-                }                
+                }
             }
             $images       = [];
             if (!$entity->getData('media_gallery'))
