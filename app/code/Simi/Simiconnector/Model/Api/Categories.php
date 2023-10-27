@@ -104,6 +104,23 @@ class Categories extends Apiabstract
             if ($this->simiObjectManager
                     ->get('Simi\Simiconnector\Helper\Data')->countCollection($childCollection) > 0) {
                 $catData['has_children'] = true;
+                $catData['children'] = [];
+                $catRepository = $this->simiObjectManager->get('Magento\Catalog\Api\CategoryRepositoryInterface');
+                foreach ($childCollection as $childCat) {
+                    $childCatData = $childCat->getData();
+                    $childCatById = $catRepository->get($childCat->getId());
+                    $childCatData['name'] = $childCatById->getName();
+                    $childCatData['url_key'] = $childCatById->getUrlKey();
+                    $childCatUrl = $childCatById->getUrl();
+                    $childCatData['url_path'] = $childCatById->getUrlKey();
+                    if (strpos($childCatUrl, '.html') !== false) {
+                        $childCatData['url_path'] = $childCatData['url_key'] . ".html";
+                    }
+                    if ($childCatById->getData('image_for_app')) {
+                        $childCatData['app_image_url'] = $childCatById->getData('image_for_app');
+                    }
+                    $catData['children'][] = $childCatData;
+                }
             } else {
                 $catData['has_children'] = false;
             }
