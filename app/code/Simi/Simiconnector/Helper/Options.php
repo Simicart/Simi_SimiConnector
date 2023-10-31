@@ -14,6 +14,11 @@ class Options extends \Magento\Framework\App\Helper\AbstractHelper
     public $scopeConfig;
     public $priceCurrency;
     public $priceHelper;
+    protected $filesystem;
+    protected $httpFactory;
+    protected $fileUploaderFactory;
+    protected $storeManager;
+    protected $_imageFactory;
 
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
