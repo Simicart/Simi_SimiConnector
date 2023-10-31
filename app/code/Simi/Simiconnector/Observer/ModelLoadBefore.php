@@ -19,6 +19,11 @@ class ModelLoadBefore implements ObserverInterface
      */
     private $simiObjectManager;
 
+    /**
+     * @var \Magento\Framework\App\Request\Http
+     */
+    protected $request;
+
     public function __construct(
         ObjectManager $simiObjectManager,
         \Magento\Framework\App\Request\Http $request

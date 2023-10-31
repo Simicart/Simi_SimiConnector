@@ -15,6 +15,11 @@ use Magento\Catalog\Api\Data\ProductInterface;
 
 class Products extends \Magento\Framework\App\Helper\AbstractHelper
 {
+    protected $beforeApplyFilterParentIds;
+    protected $beforeApplyFilterArrayIds;
+    protected $beforeApplyFilterChildProductsIds;
+    protected $beforeApplyFilterChildAndParentIds;
+    protected $afterFilterChildAndParentIds;
     public $simiObjectManager;
     public $storeManager;
     public $builderQuery;
@@ -259,7 +264,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
                     $priceFilter['from'] = $value[0];
                 if (isset($value[0]))
                     $priceFilter['to'] = $value[1];
-                $collection->addFieldToFilter('price', $priceFilter);          
+                $collection->addFieldToFilter('price', $priceFilter);
                 $this->filteredAttributes[$key] = $value;
             } else {
                 if ($key == 'category_id') {

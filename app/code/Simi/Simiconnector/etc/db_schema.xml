@@ -239,4 +239,13 @@
             <column name="id"/>
         </constraint>
     </table>
+    <table name="simiconnector_customer_click_count" resource="default" engine="innodb" comment="Customer Click Count">
+        <column xsi:type="int" name="entity_id" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="customer_id" nullable="true" comment="Customer Id"/>
+        <column xsi:type="varchar" length="254" name="email" nullable="true" comment="Customer Email"/>
+        <column xsi:type="int" name="count" nullable="false" default="0" comment="Click Count"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
 </schema>
